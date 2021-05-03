@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		631403721FE4415700277A01 /* co2.c in Sources */ = {isa = PBXBuildFile; fileRef = 631403711FE4415700277A01 /* co2.c */; };
+		631403831FE4431000277A01 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 631403821FE4431000277A01 /* IOKit.framework */; };
+		6314038D1FE4524F00277A01 /* co2tiny.c in Sources */ = {isa = PBXBuildFile; fileRef = 6314038C1FE4524F00277A01 /* co2tiny.c */; };
+		63D438F72640653600CA9575 /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = 63D438ED2640653600CA9575 /* hid.c */; };
+		63D438F82640653600CA9575 /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = 63D438ED2640653600CA9575 /* hid.c */; };
+		63D438F92640653600CA9575 /* holtekco2.c in Sources */ = {isa = PBXBuildFile; fileRef = 63D438F12640653600CA9575 /* holtekco2.c */; };
+		63D438FA2640653600CA9575 /* holtekco2.c in Sources */ = {isa = PBXBuildFile; fileRef = 63D438F12640653600CA9575 /* holtekco2.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6314036C1FE4415700277A01 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		631403881FE4524F00277A01 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		6314036E1FE4415700277A01 /* CO2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CO2; sourceTree = BUILT_PRODUCTS_DIR; };
+		631403711FE4415700277A01 /* co2.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = co2.c; sourceTree = "<group>"; };
+		631403821FE4431000277A01 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		6314038A1FE4524F00277A01 /* co2Tiny */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = co2Tiny; sourceTree = BUILT_PRODUCTS_DIR; };
+		6314038C1FE4524F00277A01 /* co2tiny.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = co2tiny.c; sourceTree = "<group>"; };
+		63D438EC2640653600CA9575 /* hidapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hidapi.h; sourceTree = "<group>"; };
+		63D438ED2640653600CA9575 /* hid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid.c; sourceTree = "<group>"; };
+		63D438F12640653600CA9575 /* holtekco2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = holtekco2.c; sourceTree = "<group>"; };
+		63D438F32640653600CA9575 /* holtekco2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = holtekco2.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6314036B1FE4415700277A01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				631403831FE4431000277A01 /* IOKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		631403871FE4524F00277A01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		631403651FE4415700277A01 = {
+			isa = PBXGroup;
+			children = (
+				631403701FE4415700277A01 /* CO₂ */,
+				6314038B1FE4524F00277A01 /* co2Tiny */,
+				63D438E92640653600CA9575 /* common */,
+				6314036F1FE4415700277A01 /* Products */,
+				631403811FE4431000277A01 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6314036F1FE4415700277A01 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6314036E1FE4415700277A01 /* CO2 */,
+				6314038A1FE4524F00277A01 /* co2Tiny */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		631403701FE4415700277A01 /* CO₂ */ = {
+			isa = PBXGroup;
+			children = (
+				631403711FE4415700277A01 /* co2.c */,
+			);
+			path = "CO₂";
+			sourceTree = "<group>";
+		};
+		631403811FE4431000277A01 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				631403821FE4431000277A01 /* IOKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6314038B1FE4524F00277A01 /* co2Tiny */ = {
+			isa = PBXGroup;
+			children = (
+				6314038C1FE4524F00277A01 /* co2tiny.c */,
+			);
+			path = co2Tiny;
+			sourceTree = "<group>";
+		};
+		63D438E92640653600CA9575 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				63D438EA2640653600CA9575 /* hid */,
+				63D438F02640653600CA9575 /* holtekco2 */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		63D438EA2640653600CA9575 /* hid */ = {
+			isa = PBXGroup;
+			children = (
+				63D438EC2640653600CA9575 /* hidapi.h */,
+				63D438ED2640653600CA9575 /* hid.c */,
+			);
+			path = hid;
+			sourceTree = "<group>";
+		};
+		63D438F02640653600CA9575 /* holtekco2 */ = {
+			isa = PBXGroup;
+			children = (
+				63D438F12640653600CA9575 /* holtekco2.c */,
+				63D438F32640653600CA9575 /* holtekco2.h */,
+			);
+			path = holtekco2;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6314036D1FE4415700277A01 /* CO₂ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 631403751FE4415700277A01 /* Build configuration list for PBXNativeTarget "CO₂" */;
+			buildPhases = (
+				6314036A1FE4415700277A01 /* Sources */,
+				6314036B1FE4415700277A01 /* Frameworks */,
+				6314036C1FE4415700277A01 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CO₂";
+			productName = "CO₂";
+			productReference = 6314036E1FE4415700277A01 /* CO2 */;
+			productType = "com.apple.product-type.tool";
+		};
+		631403891FE4524F00277A01 /* co2Tiny */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6314038E1FE4524F00277A01 /* Build configuration list for PBXNativeTarget "co2Tiny" */;
+			buildPhases = (
+				631403861FE4524F00277A01 /* Sources */,
+				631403871FE4524F00277A01 /* Frameworks */,
+				631403881FE4524F00277A01 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = co2Tiny;
+			productName = co2Tiny;
+			productReference = 6314038A1FE4524F00277A01 /* co2Tiny */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		631403661FE4415700277A01 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "David Phillip Oster";
+				TargetAttributes = {
+					6314036D1FE4415700277A01 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					631403891FE4524F00277A01 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 631403691FE4415700277A01 /* Build configuration list for PBXProject "CO₂" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = 631403651FE4415700277A01;
+			productRefGroup = 6314036F1FE4415700277A01 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6314036D1FE4415700277A01 /* CO₂ */,
+				631403891FE4524F00277A01 /* co2Tiny */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6314036A1FE4415700277A01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				631403721FE4415700277A01 /* co2.c in Sources */,
+				63D438F72640653600CA9575 /* hid.c in Sources */,
+				63D438F92640653600CA9575 /* holtekco2.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		631403861FE4524F00277A01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6314038D1FE4524F00277A01 /* co2tiny.c in Sources */,
+				63D438F82640653600CA9575 /* hid.c in Sources */,
+				63D438FA2640653600CA9575 /* holtekco2.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		631403731FE4415700277A01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		631403741FE4415700277A01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		631403761FE4415700277A01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				PRODUCT_NAME = CO2;
+			};
+			name = Debug;
+		};
+		631403771FE4415700277A01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				PRODUCT_NAME = CO2;
+			};
+			name = Release;
+		};
+		6314038F1FE4524F00277A01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		631403901FE4524F00277A01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		631403691FE4415700277A01 /* Build configuration list for PBXProject "CO₂" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				631403731FE4415700277A01 /* Debug */,
+				631403741FE4415700277A01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		631403751FE4415700277A01 /* Build configuration list for PBXNativeTarget "CO₂" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				631403761FE4415700277A01 /* Debug */,
+				631403771FE4415700277A01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6314038E1FE4524F00277A01 /* Build configuration list for PBXNativeTarget "co2Tiny" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6314038F1FE4524F00277A01 /* Debug */,
+				631403901FE4524F00277A01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 631403661FE4415700277A01 /* Project object */;
+}
