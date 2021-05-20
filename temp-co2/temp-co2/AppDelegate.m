@@ -10,6 +10,9 @@
 
 #include "hidapi.h" // at: https://github.com/signal11/hidapi  BSD License
 #include "holtekco2.h" // at: https://github.com/vshmoylov/libholtekco2 MIT License
+#import "Reading.h"
+#import "Recents.h"
+#import "RecentsIO.h"
 
 @interface AppDelegate ()
 
@@ -20,10 +23,8 @@
 
 // non-main-thread Database operations on the dbQueue // for Mac
 @property NSOperationQueue *hardwareQueue;
-
-@property(nonatomic) CGFloat temp;
-@property(nonatomic) CGFloat co2;
-@property(nonatomic) NSTimeInterval timeOfLastReading;
+@property Reading *reading;
+@property Recents *recents;
 @property(nonatomic) NSTimer *timer;
 @property co2_device *device;
 @end
@@ -46,7 +47,10 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   self.hardwareQueue = [self constructWorkQueueWithQuality:NSQualityOfServiceUtility];
   self.contentView.layer.backgroundColor = [[NSColor systemBlueColor] CGColor];
-  self.label.stringValue = MakeLegend(self.temp, self.co2);
+  NSDictionary *history = ReadHistory();
+  self.recents = [[Recents alloc] initWithDictionary:history];
+  self.reading = [[Reading alloc] init];
+  self.label.stringValue = MakeLegend(self.reading.temp, self.reading.co2);
   __weak typeof(self) weakSelf = self;
   [self.hardwareQueue addOperationWithBlock:^{
     [weakSelf takeReadingSet];
@@ -68,6 +72,9 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
     co2_close(self.device);
     self.device = nil;
     hid_exit();
+  }
+  if (self.recents.count) {
+    WriteHistory(self.recents.asDictionary);
   }
 }
 
@@ -114,24 +121,26 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
 }
 
 - (void)setCo2:(CGFloat)co2 {
-  _co2 = co2;
-  self.timeOfLastReading = [NSDate timeIntervalSinceReferenceDate];
+  self.reading.co2 = co2;
+  self.reading.timeOfLastReading = [NSDate timeIntervalSinceReferenceDate];
+  [self.recents addCo2:co2 when:self.reading.timeOfLastReading];
   [self update];
 }
 
 - (void)setTemp:(CGFloat)temp {
-  _temp = temp;
-  self.timeOfLastReading = [NSDate timeIntervalSinceReferenceDate];
+  self.reading.temp = temp;
+  self.reading.timeOfLastReading = [NSDate timeIntervalSinceReferenceDate];
+  [self.recents addTemp:temp when:self.reading.timeOfLastReading];
   [self update];
 }
 
 - (void)update {
   // If we've lost connection to the device for longer than two read intervals, then update the display to say so.
-  if ((6*60)+5 < [NSDate timeIntervalSinceReferenceDate] - self.timeOfLastReading) {
-    _co2 = 0;
-    _temp = 0;
+  if ((6*60)+5 < [NSDate timeIntervalSinceReferenceDate] - self.reading.timeOfLastReading) {
+    self.reading.co2 = 0;
+    self.reading.temp = 0;
   }
-  self.label.stringValue = MakeLegend(self.temp, self.co2);
+  self.label.stringValue = MakeLegend(self.reading.temp, self.reading.co2);
   [self drawDockImage];
 }
 
@@ -140,7 +149,7 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
   [iconImage lockFocus];
   CGRect frame = NSMakeRect(3, 3, 118, 95);
   CGRect bounds = frame;
-  self.iconLabel.stringValue = MakeIconLegend(self.temp, self.co2);
+  self.iconLabel.stringValue = MakeIconLegend(self.reading.temp, self.reading.co2);
   bounds.origin = CGPointZero;
   [self.iconLabel setFrame:frame];
   [self.iconLabel drawRect:bounds];

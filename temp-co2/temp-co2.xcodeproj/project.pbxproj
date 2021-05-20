@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63889E072655E95D00AC7B53 /* Reading.m in Sources */ = {isa = PBXBuildFile; fileRef = 63889E012655E95D00AC7B53 /* Reading.m */; };
+		63889E082655E95D00AC7B53 /* Recents.m in Sources */ = {isa = PBXBuildFile; fileRef = 63889E032655E95D00AC7B53 /* Recents.m */; };
+		63889E092655E95D00AC7B53 /* RecentsIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 63889E052655E95D00AC7B53 /* RecentsIO.m */; };
 		6393FD3E2527A8F000BD7E22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6393FD3D2527A8F000BD7E22 /* AppDelegate.m */; };
 		6393FD402527A8F100BD7E22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6393FD3F2527A8F100BD7E22 /* Assets.xcassets */; };
 		6393FD432527A8F100BD7E22 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6393FD412527A8F100BD7E22 /* MainMenu.xib */; };
@@ -18,6 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63889E012655E95D00AC7B53 /* Reading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reading.m; sourceTree = "<group>"; };
+		63889E022655E95D00AC7B53 /* RecentsIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentsIO.h; sourceTree = "<group>"; };
+		63889E032655E95D00AC7B53 /* Recents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recents.m; sourceTree = "<group>"; };
+		63889E042655E95D00AC7B53 /* Reading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reading.h; sourceTree = "<group>"; };
+		63889E052655E95D00AC7B53 /* RecentsIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentsIO.m; sourceTree = "<group>"; };
+		63889E062655E95D00AC7B53 /* Recents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recents.h; sourceTree = "<group>"; };
 		6393FD392527A8F000BD7E22 /* temp-co2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "temp-co2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6393FD3C2527A8F000BD7E22 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6393FD3D2527A8F000BD7E22 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -46,6 +55,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63889E002655E95D00AC7B53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				63889E012655E95D00AC7B53 /* Reading.m */,
+				63889E022655E95D00AC7B53 /* RecentsIO.h */,
+				63889E032655E95D00AC7B53 /* Recents.m */,
+				63889E042655E95D00AC7B53 /* Reading.h */,
+				63889E052655E95D00AC7B53 /* RecentsIO.m */,
+				63889E062655E95D00AC7B53 /* Recents.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6393FD302527A8F000BD7E22 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +92,7 @@
 				6393FD672527C31E00BD7E22 /* iconBlank.png */,
 				6393FD3C2527A8F000BD7E22 /* AppDelegate.h */,
 				6393FD3D2527A8F000BD7E22 /* AppDelegate.m */,
+				63889E002655E95D00AC7B53 /* Model */,
 				6393FD3F2527A8F100BD7E22 /* Assets.xcassets */,
 				6393FD6A2527C5B500BD7E22 /* iconBlank.png */,
 				6393FD412527A8F100BD7E22 /* MainMenu.xib */,
@@ -180,7 +203,10 @@
 			files = (
 				63D438E32640643000CA9575 /* hid.c in Sources */,
 				6393FD462527A8F100BD7E22 /* main.m in Sources */,
+				63889E082655E95D00AC7B53 /* Recents.m in Sources */,
+				63889E072655E95D00AC7B53 /* Reading.m in Sources */,
 				6393FD3E2527A8F000BD7E22 /* AppDelegate.m in Sources */,
+				63889E092655E95D00AC7B53 /* RecentsIO.m in Sources */,
 				63D438E62640643000CA9575 /* holtekco2.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +350,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.temp-co2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -343,6 +370,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.temp-co2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
