@@ -24,6 +24,7 @@
 @property NSColor *textColor;
 @property NSMutableArray<LegendItem *> *legends;
 @property NSDictionary *attrs;
+@property(nonatomic) BOOL isMouseDown;
 @end
 
 @implementation XAxisView
@@ -80,10 +81,12 @@
         lastX = x;
         lastTimeDifference = diff;
       } else if (diff < 0) {
-        LegendItem *item = [[LegendItem alloc] init];
-        item.p = CGPointMake(lastX, 5);
-        item.text = [NSString stringWithFormat:@"%ld", (24 == parts.hour || 0 == parts.hour) ? 12L : parts.hour];
-        [self.legends addObject:item];
+        if (0 == self.legends.count || 10 < self.legends.lastObject.p.x - lastX) {
+          LegendItem *item = [[LegendItem alloc] init];
+          item.p = CGPointMake(lastX, 5);
+          item.text = [NSString stringWithFormat:@"%ld", (24 == parts.hour || 0 == parts.hour) ? 12L : parts.hour];
+          [self.legends addObject:item];
+        }
         if (0 == parts.hour) {
           parts.hour = 24;
         }
@@ -100,6 +103,27 @@
       }
     }
     [self setNeedsDisplay:YES];
+  }
+}
+
+// Since this view covers the whole window, make it respond to mouse clicks.
+//
+- (BOOL)acceptsFirstResponder {
+  return YES;
+}
+
+- (void)mouseDown:(NSEvent *)event {
+  self.isMouseDown = YES;
+}
+
+- (void)mouseUp:(NSEvent *)event {
+  self.isMouseDown = NO;
+}
+
+- (void)setIsMouseDown:(BOOL)isDown {
+  if (self.isMouseDown != isDown) {
+    _isMouseDown = isDown;
+    [self.delegate setIsMouseDown:isDown];
   }
 }
 

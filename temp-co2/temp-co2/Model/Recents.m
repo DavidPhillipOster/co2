@@ -100,6 +100,48 @@ static const NSTimeInterval kCoalesceTime = 2*60;
   }
 }
 
+- (void)getCO2Min:(TimedCO2 *)outMin max:(TimedCO2 *)outMax {
+  TimedCO2 min = {0,0};
+  TimedCO2 max = {0,0};
+  min.co2 = 1.0e6;
+  for (Reading *reading in self.readings) {
+    if (0 < reading.co2 && reading.co2 < min.co2) {
+      min.co2 = reading.co2;
+      min.when = reading.timeOfLastReading;
+    }
+    if (max.co2 < reading.co2) {
+      max.co2 = reading.co2;
+      max.when = reading.timeOfLastReading;
+    }
+  }
+  if (min.when == 0.0) {
+    min.co2 = 0.0;
+  }
+  *outMin = min;
+  *outMax = max;
+}
+
+- (void)getTempMin:(TimedTemp *)outMin max:(TimedTemp *)outMax {
+  TimedTemp min = {0,0};
+  TimedTemp max = {0,0};
+  min.temp = 1.0e6;
+  for (Reading *reading in self.readings) {
+    if (0 < reading.temp && reading.temp < min.temp) {
+      min.temp = reading.temp;
+      min.when = reading.timeOfLastReading;
+    }
+    if (max.temp < reading.temp) {
+      max.temp = reading.temp;
+      max.when = reading.timeOfLastReading;
+    }
+  }
+  if (min.when == 0.0) {
+    min.temp = 0.0;
+  }
+  *outMin = min;
+  *outMax = max;
+}
+
 // Put a stair step in the first 100 samples, starting at 400, stepping up by 100 every 10 samples.
 // For testing: to debug the graph layer.
 - (void)sampleData {

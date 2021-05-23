@@ -11,6 +11,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class Reading;
 
+typedef struct TimedCO2 {
+  NSTimeInterval when;
+  CGFloat co2;
+} TimedCO2;
+
+typedef struct TimedTemp {
+  NSTimeInterval when;
+  CGFloat temp;
+} TimedTemp;
+
+
 /// A history of recent readings from the hardware. Will be used to draw a graph in the U.I.
 @interface Recents : NSObject
 @property(nonatomic, readonly) NSUInteger count;
@@ -22,6 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithDictionary:(nullable NSDictionary *)dict;
 - (NSDictionary *)asDictionary;
+
+// Returns 0,0 if not found.
+- (void)getCO2Min:(TimedCO2 *)outMin max:(TimedCO2 *)outMax;
+
+// Returns 0,0 if not found.
+- (void)getTempMin:(TimedTemp *)outMin max:(TimedTemp *)outMax;
 
 @end
 

@@ -16,12 +16,18 @@
 #import "RecentsIO.h"
 #import "XAxisView.h"
 
-@interface AppDelegate ()
+static NSString *IntervalAsDateString(NSTimeInterval when) {
+  NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:when];
+  return [NSDateFormatter localizedStringFromDate:date dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+}
+
+@interface AppDelegate () <MouseDownProtocol>
 
 @property IBOutlet NSWindow *window;
 @property IBOutlet NSView *contentView;
 @property IBOutlet NSTextField *label;
 @property IBOutlet NSTextField *iconLabel;
+@property IBOutlet NSTextField *statsLabel;
 @property IBOutlet XAxisView *xAxisView;
 
 // non-main-thread Database operations on the dbQueue // for Mac
@@ -53,11 +59,15 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
   self.contentView.layer.backgroundColor = [[NSColor systemBlueColor] CGColor];
   self.graphLayer = [[GraphLayer alloc] init];
   self.graphLayer.frame = self.contentView.layer.bounds;
+  self.xAxisView.delegate = self;
   // addLayer: makes it cover the label text.
   [self.contentView.layer insertSublayer:self.graphLayer below:self.xAxisView.layer];
   NSDictionary *history = ReadHistory();
   self.recents = [[Recents alloc] initWithDictionary:history];
   self.reading = [[Reading alloc] init];
+  self.statsLabel.frame = CGRectInset(self.label.superview.bounds, 0, -1);
+  [self.label.superview addSubview:self.statsLabel];
+  [self.statsLabel setHidden:YES];
   self.label.stringValue = MakeLegend(self.reading.temp, self.reading.co2);
   __weak typeof(self) weakSelf = self;
   [self.hardwareQueue addOperationWithBlock:^{
@@ -140,6 +150,72 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
   self.reading.timeOfLastReading = [NSDate timeIntervalSinceReferenceDate];
   [self.recents addTemp:temp when:self.reading.timeOfLastReading];
   [self update];
+}
+
+- (void)setIsMouseDown:(BOOL)isDown {
+  if (isDown) {
+    TimedCO2 min, max;
+    [self.recents getCO2Min:&min max:&max];
+    NSString *missing = @" - ";
+    NSString *minCO2S = min.co2 != 0.0 ? [@((int)min.co2) stringValue] : missing;
+    NSString *minCO2Date = min.when != 0.0 ? IntervalAsDateString(min.when) : missing;
+    NSString *maxCO2S = max.co2 != 0.0 ? [@((int)max.co2) stringValue] : missing;
+    NSString *maxCO2Date = max.when != 0.0 ? IntervalAsDateString(max.when) : missing;
+    NSString *co2Name = @"CO₂";
+    NSString *co2S = [NSString stringWithFormat:@"%@\tppm\t\twhen\nmax:\t%@\t\t%@\nmin:\t%@\t\t%@\n",
+      co2Name, maxCO2S, maxCO2Date, minCO2S, minCO2Date];
+    TimedTemp minT, maxT;
+    [self.recents getTempMin:&minT max:&maxT];
+    NSString *minTS = minT.temp != 0.0 ? [NSString stringWithFormat:@"%3.1f", minT.temp]: missing;
+    NSString *minTDate = minT.when != 0.0 ? IntervalAsDateString(minT.when) : missing;
+    NSString *maxTS = maxT.temp != 0.0 ? [NSString stringWithFormat:@"%3.1f", maxT.temp]: missing;
+    NSString *maxTDate = maxT.when != 0.0 ? IntervalAsDateString(maxT.when) : missing;
+    NSString *tempName = @"temp";
+    NSString *tempS = [NSString stringWithFormat:@"%@\t°F\t\twhen\nmax:\t%@\t\t%@\nmin:\t%@\t\t%@",
+      tempName, maxTS, maxTDate, minTS, minTDate];
+    NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
+    para.tabStops = @[
+      [[NSTextTab alloc] initWithType:NSRightTabStopType location:70],
+      [[NSTextTab alloc] initWithType:NSLeftTabStopType location:80],
+      [[NSTextTab alloc] initWithType:NSLeftTabStopType location:85],
+      [[NSTextTab alloc] initWithType:NSLeftTabStopType location:90]
+    ];
+    NSDictionary *attr = @{
+      NSFontAttributeName : [NSFont systemFontOfSize:14],
+      NSForegroundColorAttributeName : [NSColor whiteColor],
+      NSParagraphStyleAttributeName : para,
+    };
+    NSMutableAttributedString *as = [[NSMutableAttributedString alloc] initWithString:co2S attributes:attr];
+    [as addAttribute:NSFontAttributeName value:[NSFont boldSystemFontOfSize:14] range:NSMakeRange(0, co2Name.length)];
+    NSMutableAttributedString *ats = [[NSMutableAttributedString alloc] initWithString:tempS attributes:attr];
+    [ats addAttribute:NSFontAttributeName value:[NSFont boldSystemFontOfSize:14] range:NSMakeRange(0, tempName.length)];
+    [as appendAttributedString:ats];
+    self.statsLabel.attributedStringValue = as;
+  }
+  self.label.hidden = isDown;
+  self.statsLabel.hidden = ! isDown;
+}
+
+- (void)copy:(id)sender {
+  if ( ! self.statsLabel.isHidden) {
+    NSPasteboard *pasteBoard = [NSPasteboard generalPasteboard];
+    [pasteBoard clearContents];
+    NSMutableAttributedString *as = [self.statsLabel.attributedStringValue mutableCopy];
+    if (as.length) {
+      [as addAttribute:NSForegroundColorAttributeName value:[NSColor textColor] range:NSMakeRange(0, as.length)];
+      NSData *data = [as RTFFromRange:NSMakeRange(0, as.length) documentAttributes:@{}];
+      if (data) {
+        [pasteBoard setData:data forType:NSPasteboardTypeRTF];
+        return;
+      }
+    }
+  }
+  NSString *s = self.label.stringValue;
+  if (s.length) {
+    NSPasteboard *pasteBoard = [NSPasteboard generalPasteboard];
+    [pasteBoard clearContents];
+    [pasteBoard writeObjects:@[s]];
+  }
 }
 
 - (void)update {
