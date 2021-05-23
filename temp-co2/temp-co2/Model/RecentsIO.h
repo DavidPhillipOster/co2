@@ -1,3 +1,6 @@
+// RecentsIO.h
+// Apache license. See LICENSE file.
+//  Created by david on 5/19/21.
 #import <Cocoa/Cocoa.h>
 
 // Read the history from a .plist in subdirectory of Application Support

@@ -40,6 +40,9 @@ static const NSTimeInterval kCoalesceTime = 2*60;
     }
     self.readings = t;
   }
+#if 0 // For testing only.
+  [self sampleData];
+#endif
   return self;
 }
 
@@ -77,7 +80,10 @@ static const NSTimeInterval kCoalesceTime = 2*60;
   if (co2 != 0.0) {
     reading.co2 = co2;
   }
-  reading.timeOfLastReading = when;
+  // if this reading already has a time, preserve it.
+  if (reading.timeOfLastReading == 0.0) {
+    reading.timeOfLastReading = when;
+  }
 }
 
 // ignore zero readings.
@@ -94,6 +100,20 @@ static const NSTimeInterval kCoalesceTime = 2*60;
   }
 }
 
+// Put a stair step in the first 100 samples, starting at 400, stepping up by 100 every 10 samples.
+// For testing: to debug the graph layer.
+- (void)sampleData {
+  if (100 < self.count) {
+    int k = 400;
+    for (int j = 0; j < 10; j++) {
+      for (int i = 0; i < 10; i++) {
+        Reading *r = self.readings[j*10 + i];
+        r.co2 = k;
+      }
+      k += 100;
+    }
+  }
+}
 
 
 @end

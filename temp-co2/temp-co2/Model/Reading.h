@@ -8,7 +8,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// A data structure representing one resding from the hardware.
+/// A data structure representing one resding from the hardware.
+/// treat zeros in any of these fields as 'no-value'
 @interface Reading : NSObject
 @property(nonatomic) CGFloat temp;
 @property(nonatomic) CGFloat co2;

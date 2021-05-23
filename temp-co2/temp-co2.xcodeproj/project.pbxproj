@@ -10,12 +10,14 @@
 		63889E072655E95D00AC7B53 /* Reading.m in Sources */ = {isa = PBXBuildFile; fileRef = 63889E012655E95D00AC7B53 /* Reading.m */; };
 		63889E082655E95D00AC7B53 /* Recents.m in Sources */ = {isa = PBXBuildFile; fileRef = 63889E032655E95D00AC7B53 /* Recents.m */; };
 		63889E092655E95D00AC7B53 /* RecentsIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 63889E052655E95D00AC7B53 /* RecentsIO.m */; };
+		63889E0F265757D900AC7B53 /* GraphLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 63889E0E265757D900AC7B53 /* GraphLayer.m */; };
 		6393FD3E2527A8F000BD7E22 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6393FD3D2527A8F000BD7E22 /* AppDelegate.m */; };
 		6393FD402527A8F100BD7E22 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6393FD3F2527A8F100BD7E22 /* Assets.xcassets */; };
 		6393FD432527A8F100BD7E22 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6393FD412527A8F100BD7E22 /* MainMenu.xib */; };
 		6393FD462527A8F100BD7E22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6393FD452527A8F100BD7E22 /* main.m */; };
-		6393FD682527C31E00BD7E22 /* iconBlank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6393FD672527C31E00BD7E22 /* iconBlank.png */; };
 		6393FD6B2527C5B500BD7E22 /* iconBlank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6393FD6A2527C5B500BD7E22 /* iconBlank.png */; };
+		63C7B0BA265AC41700BD72AA /* XAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C7B0B8265AC41700BD72AA /* XAxisView.m */; };
+		63C7B0BD265AC43200BD72AA /* EdgeInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C7B0BB265AC43200BD72AA /* EdgeInset.m */; };
 		63D438E32640643000CA9575 /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = 63D438DA2640643000CA9575 /* hid.c */; };
 		63D438E62640643000CA9575 /* holtekco2.c in Sources */ = {isa = PBXBuildFile; fileRef = 63D438DE2640643000CA9575 /* holtekco2.c */; };
 /* End PBXBuildFile section */
@@ -27,6 +29,8 @@
 		63889E042655E95D00AC7B53 /* Reading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reading.h; sourceTree = "<group>"; };
 		63889E052655E95D00AC7B53 /* RecentsIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentsIO.m; sourceTree = "<group>"; };
 		63889E062655E95D00AC7B53 /* Recents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recents.h; sourceTree = "<group>"; };
+		63889E0D265757D900AC7B53 /* GraphLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphLayer.h; sourceTree = "<group>"; };
+		63889E0E265757D900AC7B53 /* GraphLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphLayer.m; sourceTree = "<group>"; };
 		6393FD392527A8F000BD7E22 /* temp-co2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "temp-co2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6393FD3C2527A8F000BD7E22 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6393FD3D2527A8F000BD7E22 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -36,8 +40,11 @@
 		6393FD452527A8F100BD7E22 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6393FD472527A8F100BD7E22 /* temp_co2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = temp_co2.entitlements; sourceTree = "<group>"; };
 		6393FD652527B9A800BD7E22 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		6393FD672527C31E00BD7E22 /* iconBlank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconBlank.png; sourceTree = "<group>"; };
 		6393FD6A2527C5B500BD7E22 /* iconBlank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconBlank.png; sourceTree = "<group>"; };
+		63C7B0B8265AC41700BD72AA /* XAxisView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XAxisView.m; sourceTree = "<group>"; };
+		63C7B0B9265AC41700BD72AA /* XAxisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAxisView.h; sourceTree = "<group>"; };
+		63C7B0BB265AC43200BD72AA /* EdgeInset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdgeInset.m; sourceTree = "<group>"; };
+		63C7B0BC265AC43200BD72AA /* EdgeInset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdgeInset.h; sourceTree = "<group>"; };
 		63D438D92640643000CA9575 /* hidapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hidapi.h; sourceTree = "<group>"; };
 		63D438DA2640643000CA9575 /* hid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid.c; sourceTree = "<group>"; };
 		63D438DE2640643000CA9575 /* holtekco2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = holtekco2.c; sourceTree = "<group>"; };
@@ -89,9 +96,14 @@
 		6393FD3B2527A8F000BD7E22 /* temp-co2 */ = {
 			isa = PBXGroup;
 			children = (
-				6393FD672527C31E00BD7E22 /* iconBlank.png */,
 				6393FD3C2527A8F000BD7E22 /* AppDelegate.h */,
 				6393FD3D2527A8F000BD7E22 /* AppDelegate.m */,
+				63C7B0BC265AC43200BD72AA /* EdgeInset.h */,
+				63C7B0BB265AC43200BD72AA /* EdgeInset.m */,
+				63889E0D265757D900AC7B53 /* GraphLayer.h */,
+				63889E0E265757D900AC7B53 /* GraphLayer.m */,
+				63C7B0B9265AC41700BD72AA /* XAxisView.h */,
+				63C7B0B8265AC41700BD72AA /* XAxisView.m */,
 				63889E002655E95D00AC7B53 /* Model */,
 				6393FD3F2527A8F100BD7E22 /* Assets.xcassets */,
 				6393FD6A2527C5B500BD7E22 /* iconBlank.png */,
@@ -190,7 +202,6 @@
 				6393FD402527A8F100BD7E22 /* Assets.xcassets in Resources */,
 				6393FD6B2527C5B500BD7E22 /* iconBlank.png in Resources */,
 				6393FD432527A8F100BD7E22 /* MainMenu.xib in Resources */,
-				6393FD682527C31E00BD7E22 /* iconBlank.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,12 +212,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C7B0BD265AC43200BD72AA /* EdgeInset.m in Sources */,
 				63D438E32640643000CA9575 /* hid.c in Sources */,
 				6393FD462527A8F100BD7E22 /* main.m in Sources */,
 				63889E082655E95D00AC7B53 /* Recents.m in Sources */,
 				63889E072655E95D00AC7B53 /* Reading.m in Sources */,
+				63C7B0BA265AC41700BD72AA /* XAxisView.m in Sources */,
 				6393FD3E2527A8F000BD7E22 /* AppDelegate.m in Sources */,
 				63889E092655E95D00AC7B53 /* RecentsIO.m in Sources */,
+				63889E0F265757D900AC7B53 /* GraphLayer.m in Sources */,
 				63D438E62640643000CA9575 /* holtekco2.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,7 +364,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.temp-co2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -370,7 +385,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.temp-co2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

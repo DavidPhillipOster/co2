@@ -10,9 +10,11 @@
 
 #include "hidapi.h" // at: https://github.com/signal11/hidapi  BSD License
 #include "holtekco2.h" // at: https://github.com/vshmoylov/libholtekco2 MIT License
+#import "GraphLayer.h"
 #import "Reading.h"
 #import "Recents.h"
 #import "RecentsIO.h"
+#import "XAxisView.h"
 
 @interface AppDelegate ()
 
@@ -20,11 +22,13 @@
 @property IBOutlet NSView *contentView;
 @property IBOutlet NSTextField *label;
 @property IBOutlet NSTextField *iconLabel;
+@property IBOutlet XAxisView *xAxisView;
 
 // non-main-thread Database operations on the dbQueue // for Mac
 @property NSOperationQueue *hardwareQueue;
 @property Reading *reading;
 @property Recents *recents;
+@property GraphLayer *graphLayer;
 @property(nonatomic) NSTimer *timer;
 @property co2_device *device;
 @end
@@ -47,6 +51,10 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   self.hardwareQueue = [self constructWorkQueueWithQuality:NSQualityOfServiceUtility];
   self.contentView.layer.backgroundColor = [[NSColor systemBlueColor] CGColor];
+  self.graphLayer = [[GraphLayer alloc] init];
+  self.graphLayer.frame = self.contentView.layer.bounds;
+  // addLayer: makes it cover the label text.
+  [self.contentView.layer insertSublayer:self.graphLayer below:self.xAxisView.layer];
   NSDictionary *history = ReadHistory();
   self.recents = [[Recents alloc] initWithDictionary:history];
   self.reading = [[Reading alloc] init];
@@ -142,6 +150,8 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
   }
   self.label.stringValue = MakeLegend(self.reading.temp, self.reading.co2);
   [self drawDockImage];
+  [self.graphLayer showRecents:self.recents];
+  [self.xAxisView showRecents:self.recents];
 }
 
 - (void)drawDockImage {
