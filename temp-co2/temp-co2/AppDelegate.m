@@ -65,7 +65,7 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
   NSDictionary *history = ReadHistory();
   self.recents = [[Recents alloc] initWithDictionary:history];
   self.reading = [[Reading alloc] init];
-  self.statsLabel.frame = CGRectInset(self.label.superview.bounds, 0, -1);
+  self.statsLabel.frame = self.label.superview.bounds;
   [self.label.superview addSubview:self.statsLabel];
   [self.statsLabel setHidden:YES];
   self.label.stringValue = MakeLegend(self.reading.temp, self.reading.co2);

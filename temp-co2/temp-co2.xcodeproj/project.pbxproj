@@ -18,6 +18,7 @@
 		6393FD6B2527C5B500BD7E22 /* iconBlank.png in Resources */ = {isa = PBXBuildFile; fileRef = 6393FD6A2527C5B500BD7E22 /* iconBlank.png */; };
 		63C7B0BA265AC41700BD72AA /* XAxisView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C7B0B8265AC41700BD72AA /* XAxisView.m */; };
 		63C7B0BD265AC43200BD72AA /* EdgeInset.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C7B0BB265AC43200BD72AA /* EdgeInset.m */; };
+		63C7B0C3265C30F700BD72AA /* TextFieldNoUserInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C7B0C1265C30F700BD72AA /* TextFieldNoUserInteraction.m */; };
 		63D438E32640643000CA9575 /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = 63D438DA2640643000CA9575 /* hid.c */; };
 		63D438E62640643000CA9575 /* holtekco2.c in Sources */ = {isa = PBXBuildFile; fileRef = 63D438DE2640643000CA9575 /* holtekco2.c */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,8 @@
 		63C7B0B9265AC41700BD72AA /* XAxisView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XAxisView.h; sourceTree = "<group>"; };
 		63C7B0BB265AC43200BD72AA /* EdgeInset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EdgeInset.m; sourceTree = "<group>"; };
 		63C7B0BC265AC43200BD72AA /* EdgeInset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EdgeInset.h; sourceTree = "<group>"; };
+		63C7B0C1265C30F700BD72AA /* TextFieldNoUserInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldNoUserInteraction.m; sourceTree = "<group>"; };
+		63C7B0C2265C30F700BD72AA /* TextFieldNoUserInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldNoUserInteraction.h; sourceTree = "<group>"; };
 		63D438D92640643000CA9575 /* hidapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hidapi.h; sourceTree = "<group>"; };
 		63D438DA2640643000CA9575 /* hid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid.c; sourceTree = "<group>"; };
 		63D438DE2640643000CA9575 /* holtekco2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = holtekco2.c; sourceTree = "<group>"; };
@@ -65,12 +68,12 @@
 		63889E002655E95D00AC7B53 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				63889E012655E95D00AC7B53 /* Reading.m */,
-				63889E022655E95D00AC7B53 /* RecentsIO.h */,
-				63889E032655E95D00AC7B53 /* Recents.m */,
 				63889E042655E95D00AC7B53 /* Reading.h */,
-				63889E052655E95D00AC7B53 /* RecentsIO.m */,
+				63889E012655E95D00AC7B53 /* Reading.m */,
 				63889E062655E95D00AC7B53 /* Recents.h */,
+				63889E032655E95D00AC7B53 /* Recents.m */,
+				63889E022655E95D00AC7B53 /* RecentsIO.h */,
+				63889E052655E95D00AC7B53 /* RecentsIO.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -102,6 +105,8 @@
 				63C7B0BB265AC43200BD72AA /* EdgeInset.m */,
 				63889E0D265757D900AC7B53 /* GraphLayer.h */,
 				63889E0E265757D900AC7B53 /* GraphLayer.m */,
+				63C7B0C2265C30F700BD72AA /* TextFieldNoUserInteraction.h */,
+				63C7B0C1265C30F700BD72AA /* TextFieldNoUserInteraction.m */,
 				63C7B0B9265AC41700BD72AA /* XAxisView.h */,
 				63C7B0B8265AC41700BD72AA /* XAxisView.m */,
 				63889E002655E95D00AC7B53 /* Model */,
@@ -220,6 +225,7 @@
 				63C7B0BA265AC41700BD72AA /* XAxisView.m in Sources */,
 				6393FD3E2527A8F000BD7E22 /* AppDelegate.m in Sources */,
 				63889E092655E95D00AC7B53 /* RecentsIO.m in Sources */,
+				63C7B0C3265C30F700BD72AA /* TextFieldNoUserInteraction.m in Sources */,
 				63889E0F265757D900AC7B53 /* GraphLayer.m in Sources */,
 				63D438E62640643000CA9575 /* holtekco2.c in Sources */,
 			);

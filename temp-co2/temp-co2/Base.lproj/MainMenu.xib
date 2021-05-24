@@ -158,22 +158,22 @@
         <window title="temp-co2" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="253" height="107"/>
+            <rect key="contentRect" x="335" y="390" width="258" height="110"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
-            <value key="minSize" type="size" width="253" height="107"/>
-            <value key="maxSize" type="size" width="253" height="107"/>
-            <value key="minFullScreenContentSize" type="size" width="253" height="107"/>
-            <value key="maxFullScreenContentSize" type="size" width="253" height="107"/>
+            <value key="minSize" type="size" width="258" height="110"/>
+            <value key="maxSize" type="size" width="258" height="110"/>
+            <value key="minFullScreenContentSize" type="size" width="258" height="110"/>
+            <value key="maxFullScreenContentSize" type="size" width="258" height="110"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="253" height="107"/>
+                <rect key="frame" x="0.0" y="0.0" width="258" height="110"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sqj-hm-Ku7" customClass="XAxisView">
-                        <rect key="frame" x="0.0" y="0.0" width="253" height="107"/>
+                        <rect key="frame" x="0.0" y="0.0" width="258" height="110"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Vs-tp-wlN">
-                                <rect key="frame" x="8" y="20" width="237" height="73"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Vs-tp-wlN" customClass="TextFieldNoUserInteraction">
+                                <rect key="frame" x="8" y="23" width="237" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" refusesFirstResponder="YES" allowsUndo="NO" id="VuY-D6-Xd1">
                                     <font key="font" metaFont="systemBlack" size="27"/>
@@ -193,7 +193,7 @@ CO₂: 999.9ppm</string>
                     <userDefinedRuntimeAttribute type="boolean" keyPath="wantsLayer" value="YES"/>
                 </userDefinedRuntimeAttributes>
             </view>
-            <point key="canvasLocation" x="-412" y="-139"/>
+            <point key="canvasLocation" x="-410" y="-138"/>
         </window>
         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Bx0-PL-UD4">
             <rect key="frame" x="0.0" y="0.0" width="122" height="98"/>
@@ -207,7 +207,7 @@ CO₂: 999.9ppm</string>
             </textFieldCell>
             <point key="canvasLocation" x="-487" y="-451"/>
         </textField>
-        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" id="9o3-3h-BvW" userLabel="mouse down">
+        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" id="9o3-3h-BvW" userLabel="mouse down" customClass="TextFieldNoUserInteraction">
             <rect key="frame" x="0.0" y="0.0" width="237" height="73"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <textFieldCell key="cell" refusesFirstResponder="YES" allowsUndo="NO" title="Mouse down" allowsEditingTextAttributes="YES" id="Ocu-i5-XsA">

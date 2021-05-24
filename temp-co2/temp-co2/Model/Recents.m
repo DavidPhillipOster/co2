@@ -10,7 +10,7 @@
 
 static NSString *const kReadings = @"readings";
 
-static const NSUInteger kMaxItems = 256;
+static const NSUInteger kMaxItems = 260;
 static const NSTimeInterval kCoalesceTime = 2*60;
 
 @interface Recents ()

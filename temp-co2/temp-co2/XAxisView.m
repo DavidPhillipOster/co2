@@ -82,9 +82,10 @@
         lastTimeDifference = diff;
       } else if (diff < 0) {
         if (0 == self.legends.count || 10 < self.legends.lastObject.p.x - lastX) {
+          // Don't draw a number too close to another number,
           LegendItem *item = [[LegendItem alloc] init];
           item.p = CGPointMake(lastX, 5);
-          item.text = [NSString stringWithFormat:@"%ld", (24 == parts.hour || 0 == parts.hour) ? 12L : parts.hour];
+          item.text = (0 == parts.hour || 24 == parts.hour) ? @"00" : [NSString stringWithFormat:@"%ld", parts.hour];
           [self.legends addObject:item];
         }
         if (0 == parts.hour) {
@@ -94,8 +95,6 @@
         if (parts.hour <= 0) {
           parts.hour = 24;
           parts.day -= 1;
-          labelDate = [calendar dateFromComponents:parts];
-          labelTimeInterval = [labelDate timeIntervalSinceReferenceDate];
         }
         lastX = x;
         lastTimeDifference = MAXFLOAT;
