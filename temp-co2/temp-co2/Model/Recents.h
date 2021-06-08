@@ -22,7 +22,7 @@ typedef struct TimedTemp {
 } TimedTemp;
 
 
-/// A history of recent readings from the hardware. Will be used to draw a graph in the U.I.
+/// A history of recent readings from the hardware. Will be used to draw a graph in the U.I. Saved in Application Support
 @interface Recents : NSObject
 @property(nonatomic, readonly) NSUInteger count;
 

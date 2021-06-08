@@ -1,4 +1,8 @@
 #  temp-co2
+6/07/2021
+Version 2.2
+Dark mode support. Window backgound color turns yellow and red when the LED on the box turns yellow or red.
+
 5/24/2021
 Version 2.1
 Hold the mouse down on the window to see the statistics. You can <command>-c even when the mouse is down to copy the statistics.

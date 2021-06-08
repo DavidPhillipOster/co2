@@ -35,6 +35,7 @@
   [self showRecentsFillCO2:recents];
 }
 
+/// Show the CO2 data as a right-aligned filled polygon CGPath of the layer, using the instance's scalng parameters
 - (void)showRecentsFillCO2:(Recents *)recents {
   CGRect bounds = self.bounds;
   if (2 <= recents.count && 0 < bounds.size.height && 3 < bounds.size.width) {

@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @protocol MouseDownProtocol <NSObject>
+/// Tell the delegate the mouse down state changed.
 - (void)setIsMouseDown:(BOOL)isDown;
 @end
 

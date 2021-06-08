@@ -44,7 +44,7 @@
 - (void)xAxisViewInit {
   _inset = GraphInset();
   _font = [NSFont systemFontOfSize:9];
-  _textColor = [NSColor whiteColor];
+  _textColor = [NSColor textBackgroundColor];
   _legends = [[NSMutableArray alloc] init];
   _attrs = @{NSFontAttributeName : self.font, NSForegroundColorAttributeName : self.textColor};
 }
@@ -56,6 +56,8 @@
   }
 }
 
+// label the X axis of the CO2 data by drawing hour numbers in the local calendar that are multiples
+// of 3 (skipping any that would obscure previous drawn numbers.
 - (void)showRecents:(Recents *)recents {
   CGRect bounds = self.bounds;
   if (2 <= recents.count && 0 < bounds.size.height && 3 < bounds.size.width) {

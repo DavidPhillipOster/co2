@@ -56,7 +56,7 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
   self.hardwareQueue = [self constructWorkQueueWithQuality:NSQualityOfServiceUtility];
-  self.contentView.layer.backgroundColor = [[NSColor systemBlueColor] CGColor];
+  [self setBackgroundColor];
   self.graphLayer = [[GraphLayer alloc] init];
   self.graphLayer.frame = self.contentView.layer.bounds;
   self.xAxisView.delegate = self;
@@ -138,6 +138,17 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
   }
 }
 
+/// Set the background color to mirror the yellow or red LED on the monitor.
+- (void)setBackgroundColor {
+  struct CGColor *color = [[NSColor systemBlueColor] CGColor];
+  if (1200 < self.reading.co2) {
+    color = [[NSColor systemRedColor] CGColor];
+  } else if (800 < self.reading.co2) {
+    color = [[NSColor systemYellowColor] CGColor];
+  }
+  self.contentView.layer.backgroundColor = color;
+}
+
 - (void)setCo2:(CGFloat)co2 {
   self.reading.co2 = co2;
   self.reading.timeOfLastReading = [NSDate timeIntervalSinceReferenceDate];
@@ -152,8 +163,8 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
   [self update];
 }
 
-- (void)setIsMouseDown:(BOOL)isDown {
-  if (isDown) {
+// a table of min and max values, with times, as attributed tab separated values
+- (NSAttributedString *)statistics {
     TimedCO2 min, max;
     [self.recents getCO2Min:&min max:&max];
     NSString *missing = @" - ";
@@ -190,7 +201,12 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
     NSMutableAttributedString *ats = [[NSMutableAttributedString alloc] initWithString:tempS attributes:attr];
     [ats addAttribute:NSFontAttributeName value:[NSFont boldSystemFontOfSize:14] range:NSMakeRange(0, tempName.length)];
     [as appendAttributedString:ats];
-    self.statsLabel.attributedStringValue = as;
+    return as;
+}
+
+- (void)setIsMouseDown:(BOOL)isDown {
+  if (isDown) {
+    self.statsLabel.attributedStringValue = [self statistics];
   }
   self.label.hidden = isDown;
   self.statsLabel.hidden = ! isDown;
@@ -224,6 +240,7 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
     self.reading.co2 = 0;
     self.reading.temp = 0;
   }
+  [self setBackgroundColor];
   self.label.stringValue = MakeLegend(self.reading.temp, self.reading.co2);
   [self drawDockImage];
   [self.graphLayer showRecents:self.recents];
