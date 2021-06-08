@@ -90,12 +90,9 @@
           item.text = (0 == parts.hour || 24 == parts.hour) ? @"00" : [NSString stringWithFormat:@"%ld", parts.hour];
           [self.legends addObject:item];
         }
-        if (0 == parts.hour) {
-          parts.hour = 24;
-        }
         parts.hour -= 3;
         if (parts.hour <= 0) {
-          parts.hour = 24;
+          parts.hour += 24;
           parts.day -= 1;
         }
         lastX = x;

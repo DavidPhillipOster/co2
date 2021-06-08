@@ -45,6 +45,7 @@ NSString *MakeLegend(CGFloat temp, CGFloat co2) {
   NSString *result = [NSString stringWithFormat:@"%@%@%@%@", @"Temp: ", tempS, @"\nCO₂ ppm: ", co2S];
   return result;
 }
+
 NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
   NSString *tempS = temp <= 0 ? @" - " : [NSString stringWithFormat:@"%3.1f°", temp];
   NSString *co2S = co2 <= 0 ?  @" - " : [NSString stringWithFormat:@"%3.0f", co2];
@@ -69,6 +70,9 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
   [self.label.superview addSubview:self.statsLabel];
   [self.statsLabel setHidden:YES];
   self.label.stringValue = MakeLegend(self.reading.temp, self.reading.co2);
+  if (@available(macOS 10.15, *)) {
+    [NSApp addObserver:self forKeyPath:@"effectiveAppearance" options:0 context:(__bridge void *)(self)];
+  }
   __weak typeof(self) weakSelf = self;
   [self.hardwareQueue addOperationWithBlock:^{
     [weakSelf takeReadingSet];
@@ -76,6 +80,18 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
       [weakSelf startTimer];
     }];
   }];
+}
+
+// The label in the dock tile doesn't pick up the current appearance, so we set its text color explicitly when the app's appearance changes.
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+  if (object == NSApp && context == (__bridge void *)(self) && [keyPath isEqual:@"effectiveAppearance"]) {
+    if (@available(macOS 10.15, *)) {
+      // In dark mode, textColor is too black. Pick a lighter gray.
+      self.iconLabel.textColor = [NSAppearanceNameDarkAqua isEqual:NSApp.effectiveAppearance.name] ?
+        [NSColor colorWithWhite:16.0/255 alpha:1] : [NSColor textBackgroundColor];
+      [self drawDockImage];
+    }
+  }
 }
 
 - (NSOperationQueue *)constructWorkQueueWithQuality:(NSQualityOfService)quality {
@@ -193,7 +209,7 @@ NSString *MakeIconLegend(CGFloat temp, CGFloat co2) {
     ];
     NSDictionary *attr = @{
       NSFontAttributeName : [NSFont systemFontOfSize:14],
-      NSForegroundColorAttributeName : [NSColor whiteColor],
+      NSForegroundColorAttributeName : [NSColor textBackgroundColor],
       NSParagraphStyleAttributeName : para,
     };
     NSMutableAttributedString *as = [[NSMutableAttributedString alloc] initWithString:co2S attributes:attr];

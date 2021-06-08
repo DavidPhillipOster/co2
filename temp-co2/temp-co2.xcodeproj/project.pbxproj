@@ -364,6 +364,7 @@
 				CODE_SIGN_ENTITLEMENTS = "temp-co2/temp_co2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "temp-co2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -385,6 +386,7 @@
 				CODE_SIGN_ENTITLEMENTS = "temp-co2/temp_co2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "temp-co2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

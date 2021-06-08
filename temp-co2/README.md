@@ -1,7 +1,7 @@
 #  temp-co2
 6/07/2021
 Version 2.2
-Dark mode support. Window backgound color turns yellow and red when the LED on the box turns yellow or red.
+Dark mode support. Window background color turns yellow and red when the LED on the box turns yellow or red.
 
 5/24/2021
 Version 2.1
