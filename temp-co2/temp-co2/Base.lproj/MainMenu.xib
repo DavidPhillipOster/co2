@@ -15,12 +15,17 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="contentView" destination="EiT-Mj-1SZ" id="BUi-mY-hkR"/>
-                <outlet property="iconLabel" destination="Bx0-PL-UD4" id="bAa-Ri-Zoq"/>
-                <outlet property="label" destination="9Vs-tp-wlN" id="7PV-tO-bnQ"/>
-                <outlet property="statsLabel" destination="9o3-3h-BvW" id="BJE-am-NI9"/>
+                <outlet property="co2Manager" destination="xy8-PW-lQd" id="OvO-sV-wKC"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
-                <outlet property="xAxisView" destination="sqj-hm-Ku7" id="w3g-g9-cyh"/>
+            </connections>
+        </customObject>
+        <customObject id="xy8-PW-lQd" customClass="CO2Manager">
+            <connections>
+                <outlet property="contentView" destination="EiT-Mj-1SZ" id="xAB-hs-PrT"/>
+                <outlet property="iconLabel" destination="Bx0-PL-UD4" id="u6X-gC-eJr"/>
+                <outlet property="label" destination="9Vs-tp-wlN" id="9rI-HU-ghP"/>
+                <outlet property="statsLabel" destination="9o3-3h-BvW" id="Q2J-GJ-haT"/>
+                <outlet property="xAxisView" destination="sqj-hm-Ku7" id="MEw-O5-X6e"/>
             </connections>
         </customObject>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
@@ -185,7 +190,7 @@ CO₂: 999.9ppm</string>
                             </textField>
                         </subviews>
                         <connections>
-                            <outlet property="delegate" destination="Voe-Tx-rLC" id="bGQ-qx-8Pb"/>
+                            <outlet property="delegate" destination="xy8-PW-lQd" id="f1i-md-Shm"/>
                         </connections>
                     </customView>
                 </subviews>

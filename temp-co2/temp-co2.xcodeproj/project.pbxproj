@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		637729FD26703F3900F8EEA6 /* CO2Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 637729FB26703F3900F8EEA6 /* CO2Manager.m */; };
 		63889E072655E95D00AC7B53 /* Reading.m in Sources */ = {isa = PBXBuildFile; fileRef = 63889E012655E95D00AC7B53 /* Reading.m */; };
 		63889E082655E95D00AC7B53 /* Recents.m in Sources */ = {isa = PBXBuildFile; fileRef = 63889E032655E95D00AC7B53 /* Recents.m */; };
 		63889E092655E95D00AC7B53 /* RecentsIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 63889E052655E95D00AC7B53 /* RecentsIO.m */; };
@@ -24,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		637729FB26703F3900F8EEA6 /* CO2Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CO2Manager.m; sourceTree = "<group>"; };
+		637729FC26703F3900F8EEA6 /* CO2Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CO2Manager.h; sourceTree = "<group>"; };
 		63889E012655E95D00AC7B53 /* Reading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reading.m; sourceTree = "<group>"; };
 		63889E022655E95D00AC7B53 /* RecentsIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentsIO.h; sourceTree = "<group>"; };
 		63889E032655E95D00AC7B53 /* Recents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recents.m; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 			children = (
 				6393FD3C2527A8F000BD7E22 /* AppDelegate.h */,
 				6393FD3D2527A8F000BD7E22 /* AppDelegate.m */,
+				637729FC26703F3900F8EEA6 /* CO2Manager.h */,
+				637729FB26703F3900F8EEA6 /* CO2Manager.m */,
 				63C7B0BC265AC43200BD72AA /* EdgeInset.h */,
 				63C7B0BB265AC43200BD72AA /* EdgeInset.m */,
 				63889E0D265757D900AC7B53 /* GraphLayer.h */,
@@ -223,6 +228,7 @@
 				63889E082655E95D00AC7B53 /* Recents.m in Sources */,
 				63889E072655E95D00AC7B53 /* Reading.m in Sources */,
 				63C7B0BA265AC41700BD72AA /* XAxisView.m in Sources */,
+				637729FD26703F3900F8EEA6 /* CO2Manager.m in Sources */,
 				6393FD3E2527A8F000BD7E22 /* AppDelegate.m in Sources */,
 				63889E092655E95D00AC7B53 /* RecentsIO.m in Sources */,
 				63C7B0C3265C30F700BD72AA /* TextFieldNoUserInteraction.m in Sources */,
@@ -364,7 +370,7 @@
 				CODE_SIGN_ENTITLEMENTS = "temp-co2/temp_co2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "temp-co2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -373,7 +379,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 2.2;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.turbozen.temp-co2";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.temp-co2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -386,7 +392,7 @@
 				CODE_SIGN_ENTITLEMENTS = "temp-co2/temp_co2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "temp-co2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
